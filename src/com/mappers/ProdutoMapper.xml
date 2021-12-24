@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mappers.ProdutoMapper">
+    <resultMap type="Produto" id="ProdutoResult">
+        <id property="codigo" column="cd_produto"/>
+        <result property="nome" column="nome_produto"/>
+        <result property="dataCadastro" column="data_cadastro"/>
+    </resultMap>
+
+    <select id="buscarProduto" parameterType="int" resultType="Produto">
+        SELECT cd_produto AS codigo, nome_produto AS nome, data_cadastro AS dataCadastro
+        FROM PRODUTO WHERE cd_produto=#{codigo}
+    </select>
+
+    <insert id="inserirProduto" parameterType="Produto">
+        INSERT INTO PRODUTO(cd_produto, nome_produto, data_cadastro)
+        VALUES(#{codigo},#{nome},#{dataCadastro})
+    </insert>
+</mapper>
