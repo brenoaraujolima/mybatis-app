@@ -3,12 +3,6 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mappers.ProdutoMapper">
-    <resultMap type="Produto" id="ProdutoResult">
-        <id property="codigo" column="cd_produto"/>
-        <result property="nome" column="nome_produto"/>
-        <result property="dataCadastro" column="data_cadastro"/>
-    </resultMap>
-
     <select id="buscarProduto" parameterType="int" resultType="Produto">
         SELECT cd_produto AS codigo, nome_produto AS nome, data_cadastro AS dataCadastro
         FROM PRODUTO WHERE cd_produto=#{codigo}
